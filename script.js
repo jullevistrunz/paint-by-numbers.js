@@ -16,11 +16,11 @@ function selectImg(index) {
   document.getElementById('selectImgWrapper').remove()
   //rewrite imagesArr
   //loop each pixel in selected image
-  for (let i = 0; i < imagesArr[index].data.length / 4; i++) {
+  for (let i = 0; i < Object.keys(imagesArr[index]).length / 4; i++) {
     img.push([
-      imagesArr[index].data[i * 4],
-      imagesArr[index].data[i * 4 + 1],
-      imagesArr[index].data[i * 4 + 2],
+      imagesArr[index][i * 4],
+      imagesArr[index][i * 4 + 1],
+      imagesArr[index][i * 4 + 2],
     ])
   }
   startGame()
@@ -28,6 +28,8 @@ function selectImg(index) {
 
 function startGame() {
   const width = Math.sqrt(img.length)
+  document.getElementById('gameCanvas').style.width = `${width * 50}px`
+  document.getElementById('gameCanvas').style.height = `${width * 50}px`
   for (let i = 0; i < img.length; i++) {
     const color = `rgb(${img[i][0]}, ${img[i][1]}, ${img[i][2]})`
     const el = document.createElement('div')
@@ -35,8 +37,8 @@ function startGame() {
     el.classList.add('pixelInGameCanvas')
     el.classList.add('notUsed')
     el.style.backgroundColor = color
-    el.style.width = `${512 / width}px`
-    el.style.height = `${512 / width}px`
+    el.style.width = `50px`
+    el.style.height = `50px`
     document.getElementById('gameCanvas').appendChild(el)
   }
 
@@ -48,8 +50,8 @@ function startGame() {
     el.id = `pixelInColorPallet${i}`
     el.classList.add('pixelInColorPallet')
     el.style.backgroundColor = color
-    el.style.width = `${512 / width}px`
-    el.style.height = `${512 / width}px`
+    el.style.width = `50px`
+    el.style.height = `50px`
     el.innerHTML = `<div>${i + 1}</div>`
     el.addEventListener('click', () => {
       !document.getElementsByClassName('selected')[0] ||
