@@ -24,19 +24,36 @@
           border: black 5px solid;
           display: flex;
           flex-wrap: wrap;
+          scale: 1;
         "
       ></div>
-      <div
-        id="colorPallet"
-        style="
-          margin: 25px;
-          width: fit-content;
-          border: black 5px solid;
-          display: flex;
-          flex-wrap: wrap;
-        "
-      ></div>
-      <button id="unselect">Unselect Color</button>
+      <div id="toolsWrapper">
+        <div
+          id="colorPallet"
+          style="
+            margin: 25px;
+            width: fit-content;
+            border: black 5px solid;
+            display: flex;
+            flex-wrap: wrap;
+          "
+        ></div>
+        <button id="unselect">Unselect Color</button>
+        <br /><br />
+        <button
+          id="increaseScale"
+          onclick="document.getElementById('gameCanvas').style.scale = parseFloat(document.getElementById('gameCanvas').style.scale) + 0.1"
+        >
+          Increase Scale
+        </button>
+        <br /><br />
+        <button
+          id="decreaseScale"
+          onclick="document.getElementById('gameCanvas').style.scale -= 0.1"
+        >
+          Decrease Scale</button
+        ><br /><br />
+      </div>
     </div>
   </body>
   <script src="images.js"></script>

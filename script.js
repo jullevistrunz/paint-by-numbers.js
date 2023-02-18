@@ -31,12 +31,10 @@ function startGame() {
   document.getElementById('gameCanvas').style.width = `${width * 50}px`
   document.getElementById('gameCanvas').style.height = `${width * 50}px`
   for (let i = 0; i < img.length; i++) {
-    const color = `rgb(${img[i][0]}, ${img[i][1]}, ${img[i][2]})`
     const el = document.createElement('div')
     el.id = `pixelInGameCanvas${i}`
     el.classList.add('pixelInGameCanvas')
     el.classList.add('notUsed')
-    el.style.backgroundColor = color
     el.style.width = `50px`
     el.style.height = `50px`
     document.getElementById('gameCanvas').appendChild(el)
@@ -104,6 +102,9 @@ function paintPixel(event) {
   )
   document.getElementById(`pixelInGameCanvas${index}`).innerHTML = ''
   document.getElementById(`pixelInGameCanvas${index}`).classList.add('painted')
+  document.getElementById(
+    `pixelInGameCanvas${index}`
+  ).style.backgroundColor = `rgb(${img[index][0]}, ${img[index][1]}, ${img[index][2]})`
   document
     .getElementById(`pixelInGameCanvas${index}`)
     .removeEventListener('click', paintPixel)
