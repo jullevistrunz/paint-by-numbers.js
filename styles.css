@@ -1,0 +1,95 @@
+body {
+  background-color: rgb(45, 45, 45);
+  color: white;
+}
+
+.selectImgContainer {
+  margin: 0 20px;
+}
+
+.selectImgContainer img {
+  image-rendering: pixelated;
+}
+
+.selectImg {
+  transition: ease-in-out 200ms;
+  border-radius: 5px;
+  border: 2px transparent solid;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.selectImg:hover {
+  transform: scale(110%);
+  border-color: white;
+}
+
+.pixelInColorPallet {
+  outline: 2px solid transparent;
+  transition: ease-in-out 100ms;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.pixelInColorPallet.selected {
+  opacity: 1;
+  outline-color: white;
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.pixelInColorPallet:hover:not(.selected) {
+  opacity: 1;
+  transform: scale(125%);
+  outline-color: white;
+  border-radius: 2px;
+  z-index: 2;
+}
+
+.pixelInGameCanvas > div,
+.pixelInColorPallet > div {
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    1px 1px 0 black;
+  position: relative;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 125%;
+}
+
+.pixelInGameCanvas {
+  outline: 2px solid transparent;
+  transition: ease-in-out 100ms;
+  cursor: pointer;
+}
+
+.pixelInGameCanvas:hover:not(.notUsed) {
+  transform: scale(125%);
+  outline-color: white;
+  border-radius: 2px;
+  z-index: 2;
+}
+
+.pixelInGameCanvas.painted:not(.notUsed) {
+  cursor: not-allowed;
+}
+
+.pixelInGameCanvas.painted:hover:not(.notUsed) {
+  outline-color: red;
+}
+
+.pixelInGameCanvas.notUsed {
+  opacity: 0.1;
+}
+
+.pixelInGameCanvas.painted {
+  opacity: 1;
+}
+
+button#unselect {
+  margin: 0 25px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paint By Numbers JS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 style="text-align: center; margin-top: 40px">Paint By Numbers JS</h1>
+    <div id="selectImgWrapper">
+      <h4 style="margin: 5px 20px">Select Image To Play With</h4>
+      <div class="selectImgContainer" id="selectImgContainer">
+        <div style="margin-left: 5px">Add Images To <code>./images</code></div>
+      </div>
+    </div>
+    <div id="gameWrapper" style="visibility: hidden">
+      <div
+        id="gameCanvas"
+        style="
+          margin: 25px;
+          width: 512px;
+          height: 512px;
+          border: black 5px solid;
+          display: flex;
+          flex-wrap: wrap;
+        "
+      ></div>
+      <div
+        id="colorPallet"
+        style="
+          margin: 25px;
+          width: fit-content;
+          border: black 5px solid;
+          display: flex;
+          flex-wrap: wrap;
+        "
+      ></div>
+      <button id="unselect">Unselect Color</button>
+    </div>
+  </body>
+  <script src="images.js"></script>
+  <script src="script.js"></script>
+</html>
